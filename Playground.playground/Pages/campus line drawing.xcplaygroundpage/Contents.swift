@@ -41,7 +41,7 @@ canvas.translate(to: Point(x: canvas.width, y: canvas.height))
 canvas.drawAxes(withScale: true, by: 20, color: Color.black)
 // Replace this comment with your first comment – what is the goal of the code you're about to write?
 canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
-let p =Pen(drawingUpon: canvas)
+let p = Pen(drawingUpon: canvas)
 
 // where am I and what direction am I facing?
 print(p.currentPosition())
