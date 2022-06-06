@@ -21,10 +21,12 @@ import CanvasGraphics
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 
 // Create a turtle that will draw upon the canvas
-let turtle = Tortoise(drawingUpon: canvas)
+let t = Tortoise(drawingUpon: canvas)
 
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
+canvas.translate(to: Point(x: 100, y: 100))
+canvas.drawAxes(withScale: true, by: 20, color: .black)
 /*:
  ## Add your code
  
@@ -35,9 +37,42 @@ PlaygroundPage.current.liveView = canvas
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+let scale = 20
+let diagonal = Int(sqrt(2)*Double(scale))
+t.drawSelf()
 
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
-canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
+// create arrow function
+func drawArrow() {
+    //draw arrow
+    t.penDown()
+    t.forward(steps: 4 * scale)
+    t.right(by: 90)
+    t.forward(steps: 2*scale)
+    t.left(by: 135)
+    t.forward(steps: 3*diagonal)
+    t.left(by: 90)
+    t.forward(steps: 3*diagonal)
+    t.left(by: 135)
+    t.forward(steps: 2*scale)
+    t.right(by: 90)
+    t.forward(steps: 4*scale)
+    t.left(by: 90)
+    t.forward(steps: 2*scale)
+    t.penUp()
+    t.forward(steps: 2*scale)
+        t.right(by: 90)
+}
+
+//get into position to start drawing
+
+t.left(by: 90)
+t.forward(steps: 2 * scale)
+t.right(by: 90 )
+
+//draw Arrow
+drawArrow()
+
+
 
 /*:
  ## Show the Live View

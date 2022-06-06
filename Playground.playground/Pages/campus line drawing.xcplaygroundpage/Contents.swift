@@ -5,7 +5,7 @@
  Set the size of your desired canvas by adjusting the constants on lines 19 and 20.
  */
 let preferredWidth = 600
-let preferredHeight = 600
+let preferredHeight = 800
 /*:
  ## Required code
  
@@ -36,11 +36,11 @@ PlaygroundPage.current.liveView = canvas
 
  */
 // MOVE ORIGIN TO THE MIDDLE OF CANVAS
-canvas.translate(to: Point(x: canvas.width, y: canvas.height))
+canvas.translate(to: Point(x: canvas.width / 2, y: canvas.height / 2))
 //draw a grid
 canvas.drawAxes(withScale: true, by: 20, color: Color.black)
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
-canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
+
+
 let p = Pen(drawingUpon: canvas)
 
 // where am I and what direction am I facing?
@@ -144,37 +144,6 @@ p.drawTo(dx: 0, dy: 70)
 p.drawTo(dx: 180, dy: 10)
 p.drawTo(dx: 50, dy: 10)
 p.drawTo(dx: 60, dy: 20)
-
-
-//add plants
-p.goto(dx: -150, dy:-30 )
-for i in 1 ... 3 {
-    bush1()
-    p.goto(dx: -30, dy: 0)
-}
-p.goto(dx: 380, dy: -40)
-for i in 1 ... 3 {
-    bush1()
-    p.goto(dx: 30, dy: 0)
-}
-
-//bush
-
-func bush1() {
-    p.drawTo(dx: 0, dy: 20)
-    p.drawTo(dx: 20, dy: 20)
-    p.drawTo(dx: -20, dy: -20)
-    p.drawTo(dx: -20, dy: 20)
-    p.drawTo(dx: 10, dy: -10 )
-    p.drawTo(dx: -10, dy: -10)
-    p.drawTo(dx: 20, dy: 20)
-    p.drawTo(dx: -10, dy: -10)
-    p.drawTo(dx: 10, dy: -10)
-    p.drawTo(dx: 20, dy: 0)
-    p.drawTo(dx: -40, dy: -10)
-}
-
-
 
 // where am I and what direction am I facing?
 print(p.currentPosition())
