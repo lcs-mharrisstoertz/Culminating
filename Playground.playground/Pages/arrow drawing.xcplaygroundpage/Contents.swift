@@ -43,6 +43,8 @@ t.drawSelf()
 
 // create arrow function
 func drawArrow() {
+    
+
     //draw arrow
     t.penDown()
     t.forward(steps: 4 * scale)
@@ -59,19 +61,28 @@ func drawArrow() {
     t.left(by: 90)
     t.forward(steps: 2*scale)
     t.penUp()
-    t.forward(steps: 2*scale)
-        t.right(by: 90)
+    t.left(by: 180)
+    t.forward(steps: 6 * scale)
+    t.right(by: 90)
 }
 
 //get into position to start drawing
-
 t.left(by: 90)
 t.forward(steps: 2 * scale)
 t.right(by: 90 )
 
 //draw Arrow
-drawArrow()
+for _ in 1...4 {
+    drawArrow()
+}
 
+//move pen to start new row
+
+t.forward(steps: 7 * scale)
+
+for _ in 1...4 {
+    drawArrow()
+}
 
 
 /*:
