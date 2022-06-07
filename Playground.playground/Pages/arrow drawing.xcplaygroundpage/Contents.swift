@@ -5,7 +5,7 @@
  Set the size of your desired canvas by adjusting the constants on lines 19 and 20.
  */
 let preferredWidth = 600
-let preferredHeight = 600
+let preferredHeight = 800
 /*:
  ## Required code
  
@@ -60,6 +60,9 @@ func drawArrow() {
     t.forward(steps: 4*scale)
     t.left(by: 90)
     t.forward(steps: 2*scale)
+    
+    
+    // get into position for next arrow
     t.penUp()
     t.left(by: 180)
     t.forward(steps: 6 * scale)
@@ -76,13 +79,30 @@ for _ in 1...4 {
     drawArrow()
 }
 
-//move pen to start new row
+t.drawSelf()
+t.currentPosition()
+t.currentHeading()
 
-t.forward(steps: 7 * scale)
+//repeat rows
 
-for _ in 1...4 {
-    drawArrow()
+for _ in 1...4{
+    //move pen to start new row
+    t.penUp()
+    t.forward(steps: 7 * scale)
+    t.right(by: 90)
+    t.forward(steps: 24 * scale)
+    t.left(by: 90)
+    for _ in 1...4 {
+        drawArrow()
+    }
 }
+
+
+
+
+t.drawSelf()
+t.currentPosition()
+t.currentHeading()
 
 
 /*:
