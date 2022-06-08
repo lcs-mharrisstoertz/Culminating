@@ -37,6 +37,8 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+
+canvas.highPerformance = true
 let scale = 20
 let diagonal = Int(sqrt(2)*Double(scale))
 t.drawSelf()
@@ -74,8 +76,12 @@ t.left(by: 90)
 t.forward(steps: 2 * scale)
 t.right(by: 90 )
 
+let horizontalRepeats = 7
+let verticalRepears = 4
+
+
 //draw Arrow
-for _ in 1...4 {
+for _ in 1...verticalRepears {
     drawArrow()
 }
 
@@ -85,14 +91,14 @@ t.currentHeading()
 
 //repeat rows
 
-for _ in 1...4{
+for _ in 1...horizontalRepeats{
     //move pen to start new row
     t.penUp()
     t.forward(steps: 7 * scale)
     t.right(by: 90)
     t.forward(steps: 24 * scale)
     t.left(by: 90)
-    for _ in 1...4 {
+    for _ in 1...verticalRepears {
         drawArrow()
     }
 }
@@ -104,7 +110,7 @@ t.drawSelf()
 t.currentPosition()
 t.currentHeading()
 
-
+canvas.highPerformance = false
 /*:
  ## Show the Live View
  Don't see any results?
