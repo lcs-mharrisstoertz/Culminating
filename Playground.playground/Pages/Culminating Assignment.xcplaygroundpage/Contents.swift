@@ -26,7 +26,7 @@ let t = Tortoise(drawingUpon: canvas)
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
 canvas.translate(to: Point(x: 100, y: 100))
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+
 /*:
  ## Add your code
  
@@ -50,55 +50,149 @@ func whereAmI() {
     t.currentPosition()
 }
 
-// draw square
+func drawSquares() {
+    // draw bottom left square
+
+    for _ in 1...4{
+        t.forward(steps: 10 * scale)
+        t.left(by: 90)
+    }
+    //draw angles in square
+    //middle line
+    t.forward(steps: 10*scale)
+    t.left(by: 135)
+    t.forward(steps: 10 * diagonal)
+    //bottom line
+    t.left(by: 135)
+    t.forward(steps: 5 * scale)
+    t.left(by: 45)
+    t.forward(steps: 5 * diagonal)
+    //top line
+    t.left(by: 45)
+    t.forward(steps: 5*scale)
+    t.left(by: 90)
+    t.forward(steps: 5*scale)
+    t.left(by: 45)
+    t.forward(steps: 5*diagonal)
+
+    // get into position to draw next box
+    t.left(by: 45)
+    t.forward(steps: 5*scale)
+    t.left(by: 180)
+
+    //draw top left square
+    for _ in 1...4{
+        t.forward(steps: 10 * scale)
+        t.left(by: 90)
+    }
+
+    //draw diagonals
+    //draw middle line
+    t.left(by: 45)
+    t.forward(steps: 10*diagonal)
+    //bottom line
+    t.right(by: 135)
+    t.forward(steps: 5*scale)
+    t.right(by: 45)
+    t.forward(steps: 5*diagonal)
+    //top line
+    t.right(by:45)
+    t.forward(steps: 5*scale)
+    t.right(by: 90)
+    t.forward(steps:5*scale)
+    t.right(by: 45)
+    t.forward(steps: 5*diagonal)
+
+
+    //draw bottom right square
+    //get into position
+    t.right(by: 45)
+    t.forward(steps: 5*scale)
+    t.right(by: 90)
+    t.forward(steps: 20*scale)
+    t.left(by: 90)
+
+    //draw box
+    for _ in 1...4{
+        t.forward(steps: 10 * scale)
+        t.left(by: 90)
+    }
+
+    //draw diagonals
+    //draw middle line
+    t.left(by: 45)
+    t.forward(steps: 10*diagonal)
+    //bottom line
+    t.right(by: 135)
+    t.forward(steps: 5*scale)
+    t.right(by: 45)
+    t.forward(steps: 5*diagonal)
+    //top line
+    t.right(by:45)
+    t.forward(steps: 5*scale)
+    t.right(by: 90)
+    t.forward(steps:5*scale)
+    t.right(by: 45)
+    t.forward(steps: 5*diagonal)
+
+    // draw top right square
+    //get into position
+    t.left(by: 135)
+    t.forward(steps: 5*scale)
+    t.left(by: 180)
+
+    //draw box
+    for _ in 1...4{
+        t.forward(steps: 10 * scale)
+        t.left(by: 90)
+    }
+    //draw angles in square
+    //middle line
+    t.forward(steps: 10*scale)
+    t.left(by: 135)
+    t.forward(steps: 10 * diagonal)
+    //bottom line
+    t.left(by: 135)
+    t.forward(steps: 5 * scale)
+    t.left(by: 45)
+    t.forward(steps: 5 * diagonal)
+    //top line
+    t.left(by: 45)
+    t.forward(steps: 5*scale)
+    t.left(by: 90)
+    t.forward(steps: 5*scale)
+    t.left(by: 45)
+    t.forward(steps: 5*diagonal)
+
+    //get into position
+    t.left(by: 45)
+    t.forward(steps: 15*scale)
+    t.left(by: 180)
+
+
+    
+}
+
+
 
 for _ in 1...4{
-    t.forward(steps: 10 * scale)
-    t.left(by: 90)
-}
-//draw angles in square
-//middle line
-t.forward(steps: 10*scale)
-t.left(by: 135)
-t.forward(steps: 10 * diagonal)
-//bottom line
-t.left(by: 135)
-t.forward(steps: 5 * scale)
-t.left(by: 45)
-t.forward(steps: 5 * diagonal)
-//top line
-t.left(by: 45)
-t.forward(steps: 5*scale)
-t.left(by: 90)
-t.forward(steps: 5*scale)
-t.left(by: 45)
-t.forward(steps: 5*diagonal)
-
-// get into position to draw next box
-t.left(by: 45)
-t.forward(steps: 5*scale)
-t.left(by: 180)
-
-//draw second box
-for _ in 1...4{
-    t.forward(steps: 10 * scale)
-    t.left(by: 90)
+    drawSquares()
 }
 
-//draw diagonals
-//draw middle line
-t.left(by: 45)
-t.forward(steps: 10*diagonal)
-//bottom line
-t.right(by: 135)
-t.forward(steps: 5*scale)
-t.right(by: 45)
-t.forward(steps: 5*diagonal)
-//top line
-t.right(by:45)
-t.forward(steps: 5*scale)
-t.right(by: 90)
-t.forward(steps:5*scale)
+for _ in 1...3{
+    t.forward(steps: 20*scale)
+    t.right(by: 90)
+    t.forward(steps: 79*scale)
+    t.left(by: 90)
+
+    for _ in 1...4{
+        drawSquares()
+    }
+    
+}
+
+
+
+
 
 whereAmI()
-
